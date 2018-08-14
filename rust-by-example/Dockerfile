@@ -7,7 +7,8 @@ ENV RUSTUP_HOME=/usr/local/rustup \
     RUSTUP_VERSION=1.13.0 \
     RUSTBOOK_GIT_URL=https://github.com/rust-lang-ja/rustbook.git \
     RUSTBOOK_GIT_BRANCH=master \
-    PATH=/usr/local/cargo/bin:$PATH
+    PATH=/usr/local/cargo/bin:$PATH \
+    NVM_DIR=/root/.nvm
 
 # Install Requirements
 RUN set -eux; \
@@ -15,8 +16,10 @@ RUN set -eux; \
     # Circle CI requirements \
     DEBIAN_FRONTEND=noninteractive apt-get install -yy git openssh-server tar gzip ca-certificates; \
     # GitBook requirements \
-    curl -sL https://deb.nodesource.com/setup_8.x | bash - ;\
-    DEBIAN_FRONTEND=noninteractive apt-get install -yy nodejs subversion; \
+    unset NVM_DIR; \
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash; \
+    bash -c 'export NVM_DIR=/root/.nvm; source $NVM_DIR/nvm.sh; nvm install v4.2.6' \
+    DEBIAN_FRONTEND=noninteractive apt-get install -yy subversion; \
     rm -rf /var/lib/apt/lists/*;
 
 RUN set -eux; \

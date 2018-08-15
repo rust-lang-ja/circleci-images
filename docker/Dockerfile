@@ -2,11 +2,10 @@ FROM buildpack-deps:stretch
 
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
-    RUST_VERSION=nightly-2016-06-01 \
+    RUST_VERSION=nightly-2018-08-15 \
     RUST_ARCH=x86_64-unknown-linux-gnu \
     RUSTUP_VERSION=1.13.0 \
-    RUSTBOOK_GIT_URL=https://github.com/rust-lang-ja/rustbook.git \
-    RUSTBOOK_GIT_BRANCH=master \
+    MDBOOK_VERSION=0.2.0 \
     PATH=/usr/local/cargo/bin:$PATH
 
 # Install CircleCI requirements
@@ -32,9 +31,8 @@ RUN set -eux; \
 # COPY ./cargo-config-cn /root/.cargo/config
 
 RUN set -eux; \
-    cargo install --force --root $CARGO_HOME --git $RUSTBOOK_GIT_URL --branch $RUSTBOOK_GIT_BRANCH; \
-    export LD_LIBRARY_PATH=$(rustc --print sysroot)/lib; \
-    rustbook help; \
+    cargo install --force --root $CARGO_HOME mdbook --vers "^$MDBOOK_VERSION"; \
+    mdbook --version; \
     rm -rf $CARGO_HOME/git;
 
 CMD [ "/bin/bash" ]

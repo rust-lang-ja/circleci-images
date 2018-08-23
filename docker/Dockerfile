@@ -1,4 +1,9 @@
 FROM buildpack-deps:stretch
-COPY ./hello.sh /root/hello.sh
-RUN chmod +x /root/hello.sh
-CMD [ "/root/hello.sh" ]
+
+# Install CircleCI requirements
+RUN set -eux; \
+    apt-get update -qq && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -yy git openssh-server tar gzip ca-certificates; \
+    rm -rf /var/lib/apt/lists/*;
+
+CMD [ "/bin/bash" ]

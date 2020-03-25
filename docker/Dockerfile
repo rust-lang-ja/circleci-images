@@ -1,4 +1,4 @@
-FROM rust:1.41.0-slim
+FROM rust:1.42.0-slim
 ARG MDBOOK_VERSION="0.3.6"
 
 # Install mdBook

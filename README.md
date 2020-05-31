@@ -11,10 +11,10 @@
 
 ## Dockerイメージの内容について覚え書き
 
-- (2020/05/31) TRPL 第1版から2版への案内などをついかするために、`rustbook`を独自に修正した。
+- (2020/05/31) TRPL 第1版から2版への案内などを追加するために`rustbook`を独自に修正した。
   * https://github.com/rust-lang-ja/rustbook/pull/5
-  * 修正後のDockerイメージは、タグ`trpl1`、または、`trpl1-2020-05-31`で取得できる
-  * 修正前のDockerイメージは、タグ`trpl1-2018-08-15`で取得できる
+  * 修正後のDockerイメージは、タグ`trpl1`、または、`trpl1-2020-05-31`で取得できる。
+  * 修正前のDockerイメージは、タグ`trpl1-2018-08-15`で取得できる。
 - `rustbook`コマンドをビルド・実行するには特定のバージョンの`rustc` nightlyが必要。
   * バージョンは`Dockerfile`中の`RUST_VERSION`環境変数で指定している。
 - `rustbook`コマンドを実行するには`rustc`のライブラリが必要。

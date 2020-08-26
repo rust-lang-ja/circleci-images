@@ -1,6 +1,6 @@
 FROM rust:1-slim
 ARG MDBOOK_VERSION="0.3.7"
-ARG MDBOOK_TRANSCHECK_VERSION="0.2.4"
+ARG MDBOOK_TRANSCHECK_VERSION="0.2.5"
 
 # Following lines were copied from:
 # https://github.com/hrektts/docker-mdbook/blob/master/Dockerfile

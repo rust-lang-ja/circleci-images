@@ -1,12 +1,15 @@
-FROM rust:1-slim
-ARG MDBOOK_VERSION="0.3.7"
+FROM rust:1.49.0-slim
+# ARG MDBOOK_VERSION="0.4.5"
+ARG MDBOOK_GIT_REPO="https://github.com/rust-lang-ja/mdBook"
+ARG MDBOOK_GIT_BRANCH="summary-with-html-comments"
 ARG MDBOOK_TRANSCHECK_VERSION="0.2.5"
 
 # Following lines were copied from:
 # https://github.com/hrektts/docker-mdbook/blob/master/Dockerfile
 
 # -- begin --
-RUN cargo install mdbook --vers ${MDBOOK_VERSION}
+# RUN cargo install mdbook --vers ${MDBOOK_VERSION}
+RUN cargo install mdbook --git ${MDBOOK_GIT_REPO} --branch ${MDBOOK_GIT_BRANCH}
 WORKDIR /data
 VOLUME ["/data"]
 # -- end --

@@ -13,7 +13,7 @@
 | quay.io/rust-lang-ja/circleci:mdbook            | mdBookが入ったイメージ。[rust-lang-ja/book-ja][book-ja-repo]などのCircle CIビルドに使用 | [mdbook][mdbook-docker] |
 | quay.io/rust-lang-ja/circleci:trpl2             | [rust-lang-ja/book][trpl2-repo]のCircle CIビルド | [trpl2][trpl2-docker] |
 | quay.io/rust-lang-ja/circleci:trpl1             | [rust-lang-ja/the-rust-programming-language-ja][trpl1-repo]のCircle CIビルド | [trpl1][trpl1-docker] |
-| quay.io/rust-lang-ja/circleci:rbe               | [rust-lang-ja/rust-by-example-ja][rbe-repo]のCircle CIビルド | [rust-by-example][rbe-docker] |
+| quay.io/rust-lang-ja/circleci:rbe               | [rust-lang-ja/rust-by-example-ja][rbe-repo]のCircle CIビルド | [rbe][rbe-docker] |
 | quay.io/rust-lang-ja/circleci:edition-guide     | [rust-lang-ja/edition-guide][eg-repo]のCircle CIビルド | [edition-guide][eg-docker] |
 | quay.io/rust-lang-ja/circleci:atcoder-resources | [rust-lang-ja/atcoder-rust-resources][arr-repo]のCircle CIビルド | [atcoder-resources][arr-docker] |
 

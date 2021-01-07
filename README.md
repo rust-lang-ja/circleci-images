@@ -5,7 +5,7 @@
 [rust-lang-ja](https://github.com/rust-lang-ja)がCircle CIで使用するカスタムDockerイメージ
 [![Docker Repository on Quay](https://quay.io/repository/rust-lang-ja/circleci/status "Docker Repository on Quay")](https://quay.io/repository/rust-lang-ja/circleci)
 
-このページでは[rust-lang-ja/rust-by-example-ja](https://github.com/rust-lang-ja/rust-by-example-ja)のCircle CIビルドで使用する`quay.io/rust-lang-ja/circleci:rust-by-example`イメージについて説明します。
+このページでは[rust-lang-ja/rust-by-example-ja](https://github.com/rust-lang-ja/rust-by-example-ja)のCircle CIビルドで使用する`quay.io/rust-lang-ja/circleci:rbe`イメージについて説明します。
 他のDockerイメージについて知りたい時は[`master`ブランチの`README.md`](https://github.com/rust-lang-ja/circleci-images/blob/master/README.md)を参照してください。
 
 

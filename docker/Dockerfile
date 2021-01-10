@@ -20,7 +20,7 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*;
 
 RUN set -eux; \
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y  --no-modify-path --default-toolchain ${RUST_VERSION} \
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y  --no-modify-path --default-toolchain ${RUST_VERSION}; \
     chmod -R a+w $RUSTUP_HOME $CARGO_HOME; \
     rustup --version; \
     rustc --version; \

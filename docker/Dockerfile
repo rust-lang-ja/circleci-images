@@ -1,6 +1,10 @@
-FROM rust:1.47.0
+FROM rust:1.49.0-slim
 
-ENV MDBOOK_VERSION=0.1.8
+ARG MDBOOK_GIT_REPO="https://github.com/rust-lang-ja/mdBook"
+
+# mdbook-0.1 branch of the above repository has a cherry-picked commit to address CVE-2020-26297:
+# https://github.com/rust-lang-ja/mdBook/commit/3bb522d8f10e890f9dd6f0250776584810a78cfe
+ARG MDBOOK_GIT_BRANCH="mdbook-0.1"
 
 # Install CircleCI requirements
 RUN set -eux; \
@@ -10,7 +14,7 @@ RUN set -eux; \
 
 # Install mdBook and sd
 RUN set -eux; \
-    cargo install --force mdbook --vers "^$MDBOOK_VERSION"; \
+    cargo install --force mdbook --git ${MDBOOK_GIT_REPO} --branch ${MDBOOK_GIT_BRANCH}; \
     cargo install --force sd; \
     rustc --version; \
     mdbook --version; \

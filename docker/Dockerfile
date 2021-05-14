@@ -1,11 +1,9 @@
 FROM rust:1.49.0-slim
-# ARG MDBOOK_VERSION="0.4.5"
-ARG MDBOOK_GIT_REPO="https://github.com/rust-lang-ja/mdBook"
-ARG MDBOOK_GIT_BRANCH="summary-with-html-comments"
+
+ARG MDBOOK_VERSION="0.4.8"
 
 # Install mdBook
-# RUN cargo install mdbook --vers ${MDBOOK_VERSION}
-RUN cargo install mdbook --git ${MDBOOK_GIT_REPO} --branch ${MDBOOK_GIT_BRANCH}
+RUN cargo install mdbook --vers ${MDBOOK_VERSION}
 
 # Install CircleCI Requirements
 # https://circleci.com/docs/2.0/custom-images/#required-tools-for-primary-containers

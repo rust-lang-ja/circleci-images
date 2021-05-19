@@ -1,12 +1,9 @@
 FROM buildpack-deps:stretch
 
-ARG RUST_VERSION=nightly-2021-01-09
+ARG RUST_VERSION=nightly-2021-05-12
 ARG RUST_ARCH=x86_64-unknown-linux-gnu
-ARG RUSTUP_VERSION=1.23.1
-# ARG MDBOOK_VERSION=0.4.5
-ARG MDBOOK_GIT_REPO="https://github.com/rust-lang-ja/mdBook"
-ARG MDBOOK_GIT_BRANCH="summary-with-html-comments"
-
+ARG RUSTUP_VERSION=1.24.1
+ARG MDBOOK_VERSION="0.4.8"
 ENV RUSTUP_HOME=/usr/local/rustup
 ENV CARGO_HOME=/usr/local/cargo
 ENV PATH=/usr/local/cargo/bin:$PATH
@@ -27,8 +24,7 @@ RUN set -eux; \
     cargo --version;
 
 RUN set -eux; \
-    # cargo install mdbook --root ${CARGO_HOME} --vers "^${MDBOOK_VERSION}"; \
-    cargo install mdbook --root ${CARGO_HOME} --git ${MDBOOK_GIT_REPO} --branch ${MDBOOK_GIT_BRANCH}; \
+    cargo install mdbook --root ${CARGO_HOME} --vers "^${MDBOOK_VERSION}"; \
     mdbook --version; \
     rm -rf $CARGO_HOME/git;
 

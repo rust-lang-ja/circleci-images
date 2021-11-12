@@ -1,7 +1,7 @@
 FROM buildpack-deps:stretch
 
-ARG RUST_VERSION=nightly-2021-05-12
-ARG MDBOOK_VERSION="0.4.8"
+ARG RUST_VERSION=1.56.1
+ARG MDBOOK_VERSION=0.4.13
 ENV RUSTUP_HOME=/usr/local/rustup
 ENV CARGO_HOME=/usr/local/cargo
 ENV PATH=/usr/local/cargo/bin:$PATH

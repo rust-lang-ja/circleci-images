@@ -1,32 +1,20 @@
-FROM buildpack-deps:stretch
+FROM rust:1.56.1-slim
 
-ARG RUST_VERSION=nightly-2021-05-12
-ARG RUST_ARCH=x86_64-unknown-linux-gnu
-ARG RUSTUP_VERSION=1.24.1
-ARG MDBOOK_VERSION="0.4.8"
-ENV RUSTUP_HOME=/usr/local/rustup
-ENV CARGO_HOME=/usr/local/cargo
-ENV PATH=/usr/local/cargo/bin:$PATH
+ARG MDBOOK_VERSION="0.4.13"
+ARG MDBOOK_TRANSCHECK_VERSION="0.2.8"
 
-# Install CircleCI requirements
+# Install mdBook
+RUN cargo install mdbook --vers ${MDBOOK_VERSION}
+
+# Install mdbook-transcheck
+RUN cargo install mdbook-transcheck --vers ${MDBOOK_TRANSCHECK_VERSION}
+
+# Install CircleCI Requirements
 # https://circleci.com/docs/2.0/custom-images/#required-tools-for-primary-containers
 RUN set -eux; \
     apt-get update -qq && \
     DEBIAN_FRONTEND=noninteractive apt-get install -yy git openssh-server tar gzip ca-certificates; \
-    DEBIAN_FRONTEND=noninteractive apt-get install -yy curl; \
     rm -rf /var/lib/apt/lists/*;
-
-RUN set -eux; \
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y  --no-modify-path --default-toolchain ${RUST_VERSION}; \
-    chmod -R a+w $RUSTUP_HOME $CARGO_HOME; \
-    rustup --version; \
-    rustc --version; \
-    cargo --version;
-
-RUN set -eux; \
-    cargo install mdbook --root ${CARGO_HOME} --vers "^${MDBOOK_VERSION}"; \
-    mdbook --version; \
-    rm -rf $CARGO_HOME/git;
 
 WORKDIR /data
 VOLUME ["/data"]

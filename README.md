@@ -11,5 +11,5 @@
 
 ## Dockerイメージの内容について覚え書き
 
-- 本来`mdbook`コマンドをビルド・実行するにはstable版の`rustc`で問題ないが、Edition Guide中のサンプルコードをコンパイルするためにnightly版の`rustc`が必要。
+- 本来`mdbook`コマンドをビルド・実行するにはstable版の`rustc`で問題ないが、Edition Guide中のサンプルコードをコンパイルするためにnightly版の`rustc`が必要になることがある。
   * バージョンは`Dockerfile`中の`RUST_VERSION`環境変数で指定している。

@@ -14,6 +14,7 @@ RUN cargo install mdbook-transcheck --vers ${MDBOOK_TRANSCHECK_VERSION}
 RUN set -eux; \
     apt-get update -qq && \
     DEBIAN_FRONTEND=noninteractive apt-get install -yy git openssh-server tar gzip ca-certificates; \
+    DEBIAN_FRONTEND=noninteractive apt-get install -yy xz-utils; \
     rm -rf /var/lib/apt/lists/*;
 
 WORKDIR /data

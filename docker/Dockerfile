@@ -1,9 +1,13 @@
-FROM rust:1.49.0-slim
+FROM rust:1.56.1-slim
 
-ARG MDBOOK_VERSION="0.4.8"
+ARG MDBOOK_VERSION="0.4.13"
+ARG MDBOOK_TRANSCHECK_VERSION="0.2.8"
 
 # Install mdBook
 RUN cargo install mdbook --vers ${MDBOOK_VERSION}
+
+# Install mdbook-transcheck
+RUN cargo install mdbook-transcheck --vers ${MDBOOK_TRANSCHECK_VERSION}
 
 # Install CircleCI Requirements
 # https://circleci.com/docs/2.0/custom-images/#required-tools-for-primary-containers

@@ -1,6 +1,6 @@
-FROM rust:1.56.1-slim
+FROM rustlang/rust:nightly-slim
 
-ARG MDBOOK_VERSION="0.4.13"
+ARG MDBOOK_VERSION="0.4.43"
 ARG MDBOOK_TRANSCHECK_VERSION="0.2.8"
 
 # Install mdBook

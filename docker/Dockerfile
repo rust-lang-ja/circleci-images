@@ -4,10 +4,10 @@ ARG MDBOOK_VERSION="0.4.13"
 ARG MDBOOK_TRANSCHECK_VERSION="0.2.8"
 
 # Install mdBook
-RUN cargo install mdbook --vers ${MDBOOK_VERSION}
+RUN cargo install mdbook --locked --vers ${MDBOOK_VERSION}
 
 # Install mdbook-transcheck
-RUN cargo install mdbook-transcheck --vers ${MDBOOK_TRANSCHECK_VERSION}
+RUN cargo install mdbook-transcheck --locked --vers ${MDBOOK_TRANSCHECK_VERSION}
 
 # Install CircleCI Requirements
 # https://circleci.com/docs/2.0/custom-images/#required-tools-for-primary-containers
